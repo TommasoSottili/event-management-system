@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Accesso negato{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="display-4">403</h1>
+    <p class="lead">Non hai i permessi per compiere questa azione.</p>
+    <a href="{% url 'event-list' %}" class="btn btn-primary">Torna agli eventi</a>
+</div>
+{% endblock %}

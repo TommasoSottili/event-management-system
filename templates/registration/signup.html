@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Registrati{% endblock %}
+
+{% block content %}
+<div class="card form-card">
+    <div class="card-body p-4">
+        <h1 class="h4 mb-4">Registrati</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-accent w-100">Crea account</button>
+        </form>
+        <p class="mt-3 mb-0 text-center">Hai gia un account? <a href="{% url 'login' %}">Accedi</a>.</p>
+    </div>
+</div>
+{% endblock %}

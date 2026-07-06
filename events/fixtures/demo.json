@@ -1,0 +1,199 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Organizer",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Attendee",
+    "permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$UWyMwPaCaEb0kYlYFIl8R9$fKLs0bIK38FGYSRWOcnaSNzo8uZhdf1JCFookF/F3gY=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin_demo",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@demo.it",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-07-06T08:06:05.741Z",
+    "bio": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Lm2aiomjkf29Z9TSYXjmHS$X06IWrFQZxC72xTkPYwS0rP1Zn+pfAfmFtxW9q7y0wc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "organizer_demo",
+    "first_name": "",
+    "last_name": "",
+    "email": "organizer@demo.it",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-06T08:06:05.944Z",
+    "bio": "",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Bl0eOMYhxQGPQSY5y51KJt$cLdlelDw9ZDN2rv9nt8rulCNEz659AcvrDoFVOhOfFM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "attendee_demo",
+    "first_name": "",
+    "last_name": "",
+    "email": "attendee@demo.it",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-06T08:06:06.144Z",
+    "bio": "",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$y55x2zqsILVl010kzQSQMg$cgACrcRbbHiu0sOVA+wru65WAf1sBAO8uRLf4gyeYjw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "marco_bianchi",
+    "first_name": "",
+    "last_name": "",
+    "email": "marco@demo.it",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-06T08:06:06.361Z",
+    "bio": "",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$nbbhLxsmqo6tQjx0Fw9q34$q17+kNEIlCEqOUHBUuvLr6vk6NrEMBk88EqoPie1UiY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "giulia_verdi",
+    "first_name": "",
+    "last_name": "",
+    "email": "giulia@demo.it",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-06T08:06:06.583Z",
+    "bio": "",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "events.event",
+  "pk": 1,
+  "fields": {
+    "title": "Conferenza Python Firenze",
+    "description": "Una giornata di talk sul mondo Python: web, dati e automazione.",
+    "date": "2026-09-15T07:00:00Z",
+    "location": "Palazzo dei Congressi, Firenze",
+    "organizer": 2
+  }
+},
+{
+  "model": "events.event",
+  "pk": 2,
+  "fields": {
+    "title": "Workshop Django Avanzato",
+    "description": "Laboratorio pratico su viste generiche, permessi e deploy.",
+    "date": "2026-09-20T12:30:00Z",
+    "location": "Aula Magna, Universita di Firenze",
+    "organizer": 2
+  }
+},
+{
+  "model": "events.event",
+  "pk": 3,
+  "fields": {
+    "title": "Meetup Startup & AI",
+    "description": "Serata di networking tra startup e appassionati di intelligenza artificiale.",
+    "date": "2026-10-05T16:00:00Z",
+    "location": "Talent Garden, Milano",
+    "organizer": 2
+  }
+},
+{
+  "model": "events.registration",
+  "pk": 1,
+  "fields": {
+    "event": 1,
+    "attendee": 3,
+    "registered_at": "2026-07-06T08:06:06.808Z"
+  }
+},
+{
+  "model": "events.registration",
+  "pk": 2,
+  "fields": {
+    "event": 2,
+    "attendee": 3,
+    "registered_at": "2026-07-06T08:06:06.814Z"
+  }
+},
+{
+  "model": "events.registration",
+  "pk": 3,
+  "fields": {
+    "event": 1,
+    "attendee": 4,
+    "registered_at": "2026-07-06T08:06:06.819Z"
+  }
+},
+{
+  "model": "events.registration",
+  "pk": 4,
+  "fields": {
+    "event": 1,
+    "attendee": 5,
+    "registered_at": "2026-07-06T08:06:06.824Z"
+  }
+},
+{
+  "model": "events.registration",
+  "pk": 5,
+  "fields": {
+    "event": 3,
+    "attendee": 5,
+    "registered_at": "2026-07-06T08:06:06.829Z"
+  }
+}
+]

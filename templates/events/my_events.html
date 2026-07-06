@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}I miei eventi{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h4 mb-0">I miei eventi</h1>
+    <a href="{% url 'event-create' %}" class="btn btn-accent">+ Crea evento</a>
+</div>
+
+{% if events %}
+    <div class="row g-3">
+        {% for event in events %}
+            <div class="col-md-6 col-lg-4">
+                <a href="{% url 'event-detail' event.pk %}" class="text-reset">
+                    <div class="card event-card h-100">
+                        <div class="card-body">
+                            <span class="date-badge">{{ event.date|date:"d M Y, H:i" }}</span>
+                            <h5 class="card-title mt-3">{{ event.title }}</h5>
+                            <p class="card-text"><small class="text-muted">{{ event.registrations.count }} iscritti</small></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="text-muted">Non hai ancora creato eventi.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Partecipanti - {{ event.title }}{% endblock %}
+
+{% block content %}
+<h1 class="h4 mb-4">Partecipanti a "{{ event.title }}"</h1>
+
+{% if event.registrations.all %}
+    <div class="card">
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr><th>Partecipante</th><th>Iscritto il</th></tr>
+            </thead>
+            <tbody>
+                {% for registration in event.registrations.all %}
+                    <tr>
+                        <td>{{ registration.attendee.username }}</td>
+                        <td>{{ registration.registered_at|date:"d M Y, H:i" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p class="text-muted">Ancora nessun iscritto a questo evento.</p>
+{% endif %}
+
+<a href="{% url 'event-detail' event.pk %}" class="btn btn-link mt-3">&larr; Torna all'evento</a>
+{% endblock %}

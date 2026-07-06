@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Le mie registrazioni{% endblock %}
+
+{% block content %}
+<h1 class="h4 mb-3">Le mie registrazioni</h1>
+
+{% if registrations %}
+    <div class="row g-3">
+        {% for registration in registrations %}
+            <div class="col-md-6 col-lg-4">
+                <a href="{% url 'event-detail' registration.event.pk %}" class="text-reset">
+                    <div class="card event-card h-100">
+                        <div class="card-body">
+                            <span class="date-badge">{{ registration.event.date|date:"d M Y, H:i" }}</span>
+                            <h5 class="card-title mt-3">{{ registration.event.title }}</h5>
+                            <p class="card-text text-muted">{{ registration.event.location }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="text-muted">Non sei iscritto a nessun evento.</p>
+{% endif %}
+{% endblock %}
