@@ -111,7 +111,7 @@ iscrizioni, sufficienti a testare l'intero flusso.
 
 ## Link al deploy online
 
-**[DA INSERIRE DOPO IL DEPLOY SU RAILWAY]**
+**https://web-production-174226.up.railway.app**
 
 La versione online permette di accedere con gli account demo e testare l'intero
 workflow dal browser, senza installare nulla.
