@@ -19,7 +19,7 @@
   "model": "accounts.customuser",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$UWyMwPaCaEb0kYlYFIl8R9$fKLs0bIK38FGYSRWOcnaSNzo8uZhdf1JCFookF/F3gY=",
+    "password": "pbkdf2_sha256$1000000$EOHhqpwk1upsJ74hfvXr8w$TCCq1S7MmQO3xNGk8sht09g2twDS24Kph+qd5iKYapM=",
     "last_login": null,
     "is_superuser": true,
     "username": "admin_demo",
@@ -28,7 +28,7 @@
     "email": "admin@demo.it",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2026-07-06T08:06:05.741Z",
+    "date_joined": "2026-07-09T16:21:47.792Z",
     "bio": "",
     "groups": [],
     "user_permissions": []
@@ -38,7 +38,7 @@
   "model": "accounts.customuser",
   "pk": 2,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$Lm2aiomjkf29Z9TSYXjmHS$X06IWrFQZxC72xTkPYwS0rP1Zn+pfAfmFtxW9q7y0wc=",
+    "password": "pbkdf2_sha256$1000000$mQVsJFB72TUJ6AePNFdlNC$ZpLSQQF1Z93ec3elJ5i4pjt31UWNDi0y+cvrbwtQ7UU=",
     "last_login": null,
     "is_superuser": false,
     "username": "organizer_demo",
@@ -47,7 +47,7 @@
     "email": "organizer@demo.it",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-07-06T08:06:05.944Z",
+    "date_joined": "2026-07-09T16:21:48.005Z",
     "bio": "",
     "groups": [
       1
@@ -59,7 +59,7 @@
   "model": "accounts.customuser",
   "pk": 3,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$Bl0eOMYhxQGPQSY5y51KJt$cLdlelDw9ZDN2rv9nt8rulCNEz659AcvrDoFVOhOfFM=",
+    "password": "pbkdf2_sha256$1000000$WtZAeveQX38849aO6Nt50P$MpJDfTmG9/QmYUSmxJpJ3CLVBJ/x2vUicp/hWSgVFpM=",
     "last_login": null,
     "is_superuser": false,
     "username": "attendee_demo",
@@ -68,7 +68,7 @@
     "email": "attendee@demo.it",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-07-06T08:06:06.144Z",
+    "date_joined": "2026-07-09T16:21:48.218Z",
     "bio": "",
     "groups": [
       2
@@ -80,7 +80,7 @@
   "model": "accounts.customuser",
   "pk": 4,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$y55x2zqsILVl010kzQSQMg$cgACrcRbbHiu0sOVA+wru65WAf1sBAO8uRLf4gyeYjw=",
+    "password": "pbkdf2_sha256$1000000$mbiVbtYtTW5XfcSiuQcOof$mFTFkEZNKsmtkAWSvbJhhZRohahrnhekS3p+oT4I2Ls=",
     "last_login": null,
     "is_superuser": false,
     "username": "marco_bianchi",
@@ -89,7 +89,7 @@
     "email": "marco@demo.it",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-07-06T08:06:06.361Z",
+    "date_joined": "2026-07-09T16:21:48.434Z",
     "bio": "",
     "groups": [
       2
@@ -101,7 +101,7 @@
   "model": "accounts.customuser",
   "pk": 5,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$nbbhLxsmqo6tQjx0Fw9q34$q17+kNEIlCEqOUHBUuvLr6vk6NrEMBk88EqoPie1UiY=",
+    "password": "pbkdf2_sha256$1000000$YdzVIeRq9ijbOJQmBeifsS$wOrFln3rpgUgJEobJrGPqRGueuVGhRs2RAEmwBkgRJ0=",
     "last_login": null,
     "is_superuser": false,
     "username": "giulia_verdi",
@@ -110,7 +110,7 @@
     "email": "giulia@demo.it",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-07-06T08:06:06.583Z",
+    "date_joined": "2026-07-09T16:21:48.648Z",
     "bio": "",
     "groups": [
       2
@@ -157,7 +157,7 @@
   "fields": {
     "event": 1,
     "attendee": 3,
-    "registered_at": "2026-07-06T08:06:06.808Z"
+    "registered_at": "2026-07-09T16:21:48.877Z"
   }
 },
 {
@@ -166,7 +166,7 @@
   "fields": {
     "event": 2,
     "attendee": 3,
-    "registered_at": "2026-07-06T08:06:06.814Z"
+    "registered_at": "2026-07-09T16:21:48.881Z"
   }
 },
 {
@@ -175,7 +175,7 @@
   "fields": {
     "event": 1,
     "attendee": 4,
-    "registered_at": "2026-07-06T08:06:06.819Z"
+    "registered_at": "2026-07-09T16:21:48.889Z"
   }
 },
 {
@@ -184,7 +184,7 @@
   "fields": {
     "event": 1,
     "attendee": 5,
-    "registered_at": "2026-07-06T08:06:06.824Z"
+    "registered_at": "2026-07-09T16:21:48.894Z"
   }
 },
 {
@@ -193,7 +193,47 @@
   "fields": {
     "event": 3,
     "attendee": 5,
-    "registered_at": "2026-07-06T08:06:06.829Z"
+    "registered_at": "2026-07-09T16:21:48.899Z"
+  }
+},
+{
+  "model": "events.comment",
+  "pk": 1,
+  "fields": {
+    "event": 1,
+    "author": 3,
+    "text": "Non vedo l'ora, gli speaker sono top!",
+    "created_at": "2026-07-09T16:21:48.906Z"
+  }
+},
+{
+  "model": "events.comment",
+  "pk": 2,
+  "fields": {
+    "event": 1,
+    "author": 4,
+    "text": "Qualcuno sa se ci sara' anche una sessione su Django?",
+    "created_at": "2026-07-09T16:21:48.912Z"
+  }
+},
+{
+  "model": "events.comment",
+  "pk": 3,
+  "fields": {
+    "event": 1,
+    "author": 5,
+    "text": "Ci sono stata l'anno scorso, esperienza fantastica.",
+    "created_at": "2026-07-09T16:21:48.917Z"
+  }
+},
+{
+  "model": "events.comment",
+  "pk": 4,
+  "fields": {
+    "event": 2,
+    "author": 3,
+    "text": "Perfetto per chi vuole imparare il deploy.",
+    "created_at": "2026-07-09T16:21:48.926Z"
   }
 }
 ]

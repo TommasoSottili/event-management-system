@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Event, Registration
+from .models import Comment, Event, Registration
 
 
 @admin.register(Event)
@@ -13,4 +13,10 @@ class EventAdmin(admin.ModelAdmin):
 @admin.register(Registration)
 class RegistrationAdmin(admin.ModelAdmin):
     list_display = ("event", "attendee", "registered_at")
+    list_filter = ("event",)
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ("event", "author", "created_at")
     list_filter = ("event",)

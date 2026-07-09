@@ -41,6 +41,41 @@
         {% endif %}
     </div>
 </div>
+
+<div class="card form-card" style="max-width: 720px;">
+    <div class="card-body p-4">
+        <h2 class="h5 mb-3">Commenti ({{ event.comments.count }})</h2>
+
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'add-comment' event.pk %}" class="mb-4">
+                {% csrf_token %}
+                {{ comment_form.text }}
+                <button type="submit" class="btn btn-accent btn-sm mt-2">Invia commento</button>
+            </form>
+        {% else %}
+            <p class="text-muted"><a href="{% url 'login' %}">Accedi</a> per lasciare un commento.</p>
+        {% endif %}
+
+        {% for comment in event.comments.all %}
+            <div class="border-bottom pb-2 mb-2">
+                <div class="d-flex justify-content-between">
+                    <strong>{{ comment.author.username }}</strong>
+                    <small class="text-muted">{{ comment.created_at|date:"d M Y, H:i" }}</small>
+                </div>
+                <p class="mb-1">{{ comment.text|linebreaks }}</p>
+                {% if comment.author == user or event.organizer == user %}
+                    <form method="post" action="{% url 'delete-comment' comment.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link btn-sm text-danger p-0">Elimina</button>
+                    </form>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p class="text-muted mb-0">Ancora nessun commento.</p>
+        {% endfor %}
+    </div>
+</div>
+
 <div class="text-center">
     <a href="{% url 'event-list' %}" class="btn btn-link">&larr; Torna agli eventi</a>
 </div>

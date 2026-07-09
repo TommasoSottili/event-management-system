@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.decorators.http import require_POST
@@ -12,8 +13,8 @@ from django.views.generic import (
     UpdateView,
 )
 
-from .forms import EventForm
-from .models import Event, Registration
+from .forms import CommentForm, EventForm
+from .models import Comment, Event, Registration
 
 
 class EventListView(ListView):
@@ -34,6 +35,7 @@ class EventDetailView(DetailView):
             context["is_registered"] = self.object.registrations.filter(
                 attendee=user
             ).exists()
+        context["comment_form"] = CommentForm()
         return context
 
 
@@ -101,6 +103,34 @@ def unregister_event(request, pk):
     Registration.objects.filter(event=event, attendee=request.user).delete()
     messages.success(request, "Iscrizione annullata.")
     return redirect("event-detail", pk=pk)
+
+
+@login_required
+@require_POST
+def add_comment(request, pk):
+    event = get_object_or_404(Event, pk=pk)
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.event = event
+        comment.author = request.user
+        comment.save()
+        messages.success(request, "Commento aggiunto.")
+    else:
+        messages.error(request, "Il commento non puo essere vuoto.")
+    return redirect("event-detail", pk=pk)
+
+
+@login_required
+@require_POST
+def delete_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    if comment.author == request.user or comment.event.organizer == request.user:
+        event_pk = comment.event.pk
+        comment.delete()
+        messages.success(request, "Commento eliminato.")
+        return redirect("event-detail", pk=event_pk)
+    raise PermissionDenied
 
 
 class EventParticipantsView(EventOwnerRequiredMixin, DetailView):

@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Event
+from .models import Comment, Event
 
 
 class EventForm(forms.ModelForm):
@@ -20,3 +20,18 @@ class EventForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["date"].input_formats = ["%Y-%m-%dT%H:%M"]
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ["text"]
+        widgets = {
+            "text": forms.Textarea(
+                attrs={
+                    "class": "form-control",
+                    "rows": 3,
+                    "placeholder": "Scrivi un commento...",
+                }
+            ),
+        }

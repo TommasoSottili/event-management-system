@@ -45,4 +45,27 @@ class Registration(models.Model):
         unique_together = ("event", "attendee")
 
     def __str__(self):
-        return f"{self.attendee} → {self.event}"
+        return f"{self.attendee} -> {self.event}"
+
+
+class Comment(models.Model):
+    event = models.ForeignKey(
+        Event,
+        on_delete=models.CASCADE,
+        related_name="comments",
+        verbose_name="evento",
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="comments",
+        verbose_name="autore",
+    )
+    text = models.TextField("testo")
+    created_at = models.DateTimeField("scritto il", auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"Commento di {self.author} su {self.event}"

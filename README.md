@@ -24,17 +24,20 @@ autenticazione integrata, ruoli basati su Gruppi e permessi applicati nel codice
 
 **Visitatore (non autenticato)**
 - Consulta l'elenco degli eventi e il dettaglio di ciascun evento
+- Legge i commenti pubblicati sugli eventi
 - Si registra e accede al sito
 
 **Partecipante (Attendee)**
 - Tutto quanto sopra
 - Si iscrive e annulla l'iscrizione agli eventi
+- Scrive commenti sugli eventi ed elimina i propri commenti
 - Consulta la pagina "Le mie registrazioni"
 
 **Organizzatore (Organizer)**
 - Crea, modifica ed elimina i **propri** eventi (CRUD completo)
 - Consulta la lista dei partecipanti dei propri eventi
 - Consulta la pagina "I miei eventi"
+- Modera i commenti sui propri eventi (può eliminarli)
 - Può anche iscriversi come partecipante agli eventi organizzati da altri
 
 **Amministratore (superuser)**
@@ -46,7 +49,7 @@ autenticazione integrata, ruoli basati su Gruppi e permessi applicati nel codice
 ## Scelte tecniche (mappa dei requisiti)
 
 - **Struttura modulare:** due app Django, `accounts` (utenti e autenticazione) ed `events` (eventi e iscrizioni)
-- **Modello dati relazionale:** due relazioni `ForeignKey` — `Event.organizer` (utente → eventi) e il modello-ponte `Registration` (utente ↔ evento)
+- **Modello dati relazionale:** più relazioni `ForeignKey` — `Event.organizer` (utente → eventi), il modello-ponte `Registration` (utente ↔ evento) e i `Comment` sugli eventi (utente → commenti, evento → commenti)
 - **Custom user model:** `accounts.CustomUser` che estende `AbstractUser`
 - **Ruoli e permessi:** due Gruppi (`Organizer`, `Attendee`) applicati nel codice con i mixin `LoginRequiredMixin` e `UserPassesTestMixin` e riflessi nell'interfaccia
 - **Class-based / generic views:** `ListView`, `DetailView`, `CreateView`, `UpdateView`, `DeleteView`
