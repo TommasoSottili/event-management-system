@@ -1,21 +1,33 @@
 :root {
     --accent: #4f46e5;
     --accent-dark: #4338ca;
-    --bg: #f7f8fa;
+    --bg: #f5f6f9;
+    --text: #1f2937;
+    --muted: #6b7280;
 }
 
 body {
     background-color: var(--bg);
-    color: #1f2937;
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Navbar */
 .navbar-brand {
     font-weight: 700;
     letter-spacing: .3px;
+    font-size: 1.35rem;
 }
 .navbar-brand span {
     color: #a5b4fc;
+}
+.navbar-nav .nav-link {
+    padding-left: .75rem;
+    padding-right: .75rem;
+    transition: color .15s ease;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #c7d2fe;
 }
 
 /* Hero in homepage */
@@ -25,6 +37,7 @@ body {
     border-radius: 1rem;
     padding: 3rem 2rem;
     margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(79, 70, 229, .25);
 }
 .hero h1 { font-weight: 700; }
 
@@ -39,6 +52,9 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0,0,0,.12);
 }
+.event-card .card-title {
+    font-weight: 600;
+}
 
 /* Etichetta data */
 .date-badge {
@@ -46,18 +62,24 @@ body {
     background: var(--accent);
     color: #fff;
     border-radius: .5rem;
-    padding: .25rem .6rem;
+    padding: .3rem .65rem;
     font-size: .8rem;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 /* Bottone accento */
 .btn-accent {
     background: var(--accent);
     color: #fff;
+    font-weight: 500;
 }
 .btn-accent:hover {
     background: var(--accent-dark);
+    color: #fff;
+}
+.btn-accent:focus {
+    box-shadow: 0 0 0 .25rem rgba(79, 70, 229, .35);
     color: #fff;
 }
 
@@ -70,9 +92,63 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,.08);
 }
 
+/* Campi dei form generati da Django (form.as_p) */
+main form p {
+    margin-bottom: 1rem;
+}
+main form p label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: .35rem;
+    color: #374151;
+}
+.form-control:focus,
+.form-select:focus {
+    border-color: #a5b4fc;
+    box-shadow: 0 0 0 .2rem rgba(79, 70, 229, .18);
+}
+main form .helptext {
+    display: block;
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: .35rem;
+    line-height: 1.4;
+}
+main form .helptext ul,
+main form ul:not(.errorlist) {
+    font-size: .8rem;
+    color: var(--muted);
+    margin: .4rem 0 0;
+    padding-left: 1.1rem;
+}
+main form ul.errorlist {
+    list-style: none;
+    padding-left: 0;
+    margin: .25rem 0;
+    font-size: .85rem;
+    color: #dc2626;
+}
+
+/* Liste eventi nel profilo organizzatore */
+.list-group-item-action:hover {
+    background-color: #eef2ff;
+}
+
+/* Sezioni commenti / eventi */
+hr {
+    border-color: #e5e7eb;
+    opacity: 1;
+}
+
+/* Messaggi (alert) */
+.alert {
+    border: none;
+    border-radius: .6rem;
+}
+
 /* Footer */
 footer {
-    color: #6b7280;
+    color: var(--muted);
     padding: 1.5rem 0;
     text-align: center;
     font-size: .9rem;
@@ -81,3 +157,4 @@ footer {
 }
 
 a { text-decoration: none; }
+a:hover { text-decoration: none; }
