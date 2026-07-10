@@ -69,3 +69,29 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Commento di {self.author} su {self.event}"
+
+
+class Rating(models.Model):
+    SCORE_CHOICES = [(i, str(i)) for i in range(1, 6)]
+
+    organizer = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="ratings_received",
+        verbose_name="organizzatore",
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="ratings_given",
+        verbose_name="autore",
+    )
+    score = models.PositiveSmallIntegerField("voto", choices=SCORE_CHOICES)
+    created_at = models.DateTimeField("dato il", auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        unique_together = ("organizer", "author")
+
+    def __str__(self):
+        return f"{self.author} -> {self.organizer}: {self.score}"

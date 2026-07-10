@@ -2,8 +2,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
+from django.db.models import Avg
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.utils import timezone
 from django.views.decorators.http import require_POST
 from django.views.generic import (
     CreateView,
@@ -13,8 +15,10 @@ from django.views.generic import (
     UpdateView,
 )
 
+from accounts.models import CustomUser
+
 from .forms import CommentForm, EventForm
-from .models import Comment, Event, Registration
+from .models import Comment, Event, Rating, Registration
 
 
 class EventListView(ListView):
@@ -36,6 +40,7 @@ class EventDetailView(DetailView):
                 attendee=user
             ).exists()
         context["comment_form"] = CommentForm()
+        context["is_past"] = self.object.date < timezone.now()
         return context
 
 
@@ -83,6 +88,9 @@ class EventDeleteView(EventOwnerRequiredMixin, DeleteView):
 @require_POST
 def register_event(request, pk):
     event = get_object_or_404(Event, pk=pk)
+    if event.date < timezone.now():
+        messages.warning(request, "L'evento e gia passato: non e piu possibile iscriversi.")
+        return redirect("event-detail", pk=pk)
     if event.organizer == request.user:
         messages.warning(request, "Non puoi iscriverti a un evento che organizzi tu.")
     else:
@@ -153,3 +161,53 @@ class MyRegistrationsView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Registration.objects.filter(attendee=self.request.user)
+
+
+class OrganizerProfileView(DetailView):
+    model = CustomUser
+    template_name = "events/organizer_profile.html"
+    context_object_name = "organizer"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        organizer = self.object
+        now = timezone.now()
+        events = organizer.events_organized.all()
+        context["upcoming_events"] = events.filter(date__gte=now)
+        context["past_events"] = events.filter(date__lt=now)
+        context["avg_rating"] = organizer.ratings_received.aggregate(
+            Avg("score")
+        )["score__avg"]
+        context["rating_count"] = organizer.ratings_received.count()
+        if self.request.user.is_authenticated:
+            context["user_rating"] = organizer.ratings_received.filter(
+                author=self.request.user
+            ).first()
+        context["score_range"] = [1, 2, 3, 4, 5]
+        return context
+
+
+@login_required
+@require_POST
+def rate_organizer(request, pk):
+    organizer = get_object_or_404(CustomUser, pk=pk)
+    if organizer == request.user:
+        messages.warning(request, "Non puoi valutare te stesso.")
+        return redirect("organizer-profile", pk=pk)
+    if not organizer.is_organizer:
+        messages.warning(request, "Puoi valutare solo gli organizzatori.")
+        return redirect("organizer-profile", pk=pk)
+    try:
+        score = int(request.POST.get("score", 0))
+    except (TypeError, ValueError):
+        score = 0
+    if 1 <= score <= 5:
+        Rating.objects.update_or_create(
+            organizer=organizer,
+            author=request.user,
+            defaults={"score": score},
+        )
+        messages.success(request, "Valutazione registrata.")
+    else:
+        messages.error(request, "Voto non valido.")
+    return redirect("organizer-profile", pk=pk)

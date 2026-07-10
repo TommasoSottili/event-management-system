@@ -6,9 +6,10 @@
 <div class="card form-card" style="max-width: 720px;">
     <div class="card-body p-4">
         <span class="date-badge">{{ event.date|date:"l d F Y, H:i" }}</span>
+        {% if is_past %}<span class="badge bg-secondary ms-2">Evento concluso</span>{% endif %}
         <h1 class="h3 mt-3">{{ event.title }}</h1>
         <p class="text-muted mb-1">{{ event.location }}</p>
-        <p class="text-muted">Organizzato da {{ event.organizer.username }}</p>
+        <p class="text-muted">Organizzato da <a href="{% url 'organizer-profile' event.organizer.pk %}">{{ event.organizer.username }}</a></p>
 
         <hr>
         <p>{{ event.description|linebreaks }}</p>
@@ -20,6 +21,14 @@
                 <a href="{% url 'event-participants' event.pk %}" class="btn btn-outline-secondary">
                     Partecipanti ({{ event.registrations.count }})
                 </a>
+            </div>
+        {% elif is_past %}
+            <div class="mt-4">
+                {% if user.is_authenticated and is_registered %}
+                    <span class="badge bg-success">Hai partecipato a questo evento</span>
+                {% else %}
+                    <p class="text-muted mb-0">Questo evento è concluso, le iscrizioni sono chiuse.</p>
+                {% endif %}
             </div>
         {% elif user.is_authenticated %}
             <div class="mt-4">

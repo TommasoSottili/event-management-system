@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Comment, Event, Registration
+from .models import Comment, Event, Rating, Registration
 
 
 @admin.register(Event)
@@ -20,3 +20,9 @@ class RegistrationAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ("event", "author", "created_at")
     list_filter = ("event",)
+
+
+@admin.register(Rating)
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ("organizer", "author", "score", "created_at")
+    list_filter = ("organizer",)

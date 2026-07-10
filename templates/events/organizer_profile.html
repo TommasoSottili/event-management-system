@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Organizzatore: {{ organizer.username }}{% endblock %}
+
+{% block content %}
+<div class="card form-card" style="max-width: 720px;">
+    <div class="card-body p-4">
+        <h1 class="h3 mb-1">{{ organizer.username }}</h1>
+        <p class="text-muted">Organizzatore</p>
+        {% if organizer.bio %}<p>{{ organizer.bio }}</p>{% endif %}
+
+        <hr>
+        <h2 class="h5">Valutazione media</h2>
+        {% if avg_rating %}
+            <p class="mb-1">
+                <span class="badge bg-warning text-dark fs-6">{{ avg_rating|floatformat:1 }} / 5</span>
+                <small class="text-muted">su {{ rating_count }} valutazioni</small>
+            </p>
+        {% else %}
+            <p class="text-muted">Ancora nessuna valutazione.</p>
+        {% endif %}
+
+        {% if user.is_authenticated and user != organizer %}
+            <form method="post" action="{% url 'rate-organizer' organizer.pk %}" class="mt-2 d-flex align-items-center gap-2">
+                {% csrf_token %}
+                <label class="mb-0">Il tuo voto:</label>
+                <select name="score" class="form-select form-select-sm" style="width:auto;">
+                    {% for n in score_range %}
+                        <option value="{{ n }}" {% if user_rating and user_rating.score == n %}selected{% endif %}>{{ n }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-accent btn-sm">
+                    {% if user_rating %}Aggiorna voto{% else %}Vota{% endif %}
+                </button>
+            </form>
+        {% endif %}
+    </div>
+</div>
+
+<div class="card form-card" style="max-width: 720px;">
+    <div class="card-body p-4">
+        <h2 class="h5 mb-3">Prossimi eventi</h2>
+        {% if upcoming_events %}
+            <div class="list-group mb-3">
+                {% for event in upcoming_events %}
+                    <a href="{% url 'event-detail' event.pk %}" class="list-group-item list-group-item-action">
+                        {{ event.title }} <small class="text-muted">- {{ event.date|date:"d M Y, H:i" }}</small>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted">Nessun evento in programma.</p>
+        {% endif %}
+
+        <h2 class="h5 mb-3">Eventi passati</h2>
+        {% if past_events %}
+            <div class="list-group">
+                {% for event in past_events %}
+                    <a href="{% url 'event-detail' event.pk %}" class="list-group-item list-group-item-action">
+                        {{ event.title }} <small class="text-muted">- {{ event.date|date:"d M Y, H:i" }}</small>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted mb-0">Nessun evento passato.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="text-center">
+    <a href="{% url 'event-list' %}" class="btn btn-link">&larr; Torna agli eventi</a>
+</div>
+{% endblock %}

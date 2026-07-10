@@ -19,7 +19,7 @@
   "model": "accounts.customuser",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$EOHhqpwk1upsJ74hfvXr8w$TCCq1S7MmQO3xNGk8sht09g2twDS24Kph+qd5iKYapM=",
+    "password": "pbkdf2_sha256$1000000$1IzQ4yOfQjq4QtCJfWNu1X$dO/sdyDB4nFtWdQofrQc+Do0BFFvscQ675aSjXcdAiA=",
     "last_login": null,
     "is_superuser": true,
     "username": "admin_demo",
@@ -28,7 +28,7 @@
     "email": "admin@demo.it",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2026-07-09T16:21:47.792Z",
+    "date_joined": "2026-07-10T14:56:01.619Z",
     "bio": "",
     "groups": [],
     "user_permissions": []
@@ -38,7 +38,7 @@
   "model": "accounts.customuser",
   "pk": 2,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$mQVsJFB72TUJ6AePNFdlNC$ZpLSQQF1Z93ec3elJ5i4pjt31UWNDi0y+cvrbwtQ7UU=",
+    "password": "pbkdf2_sha256$1000000$stabNDShJ8M2cOoLOOck4o$EU3XBj2i4MwS8On/EjnaPnoIMD3aexPAdE3ZthVJVU8=",
     "last_login": null,
     "is_superuser": false,
     "username": "organizer_demo",
@@ -47,7 +47,7 @@
     "email": "organizer@demo.it",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-07-09T16:21:48.005Z",
+    "date_joined": "2026-07-10T14:56:01.831Z",
     "bio": "",
     "groups": [
       1
@@ -59,19 +59,19 @@
   "model": "accounts.customuser",
   "pk": 3,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$WtZAeveQX38849aO6Nt50P$MpJDfTmG9/QmYUSmxJpJ3CLVBJ/x2vUicp/hWSgVFpM=",
+    "password": "pbkdf2_sha256$1000000$RrdQVca9ZIk8yRyvDbWSLv$IH/MofxsSD/8DNb242W9pre3w/DIWQxV7//Jv+ur2p8=",
     "last_login": null,
     "is_superuser": false,
-    "username": "attendee_demo",
+    "username": "laura_neri",
     "first_name": "",
     "last_name": "",
-    "email": "attendee@demo.it",
+    "email": "laura@demo.it",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-07-09T16:21:48.218Z",
-    "bio": "",
+    "date_joined": "2026-07-10T14:56:02.046Z",
+    "bio": "Organizzo eventi culturali e workshop creativi a Firenze.",
     "groups": [
-      2
+      1
     ],
     "user_permissions": []
   }
@@ -80,16 +80,16 @@
   "model": "accounts.customuser",
   "pk": 4,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$mbiVbtYtTW5XfcSiuQcOof$mFTFkEZNKsmtkAWSvbJhhZRohahrnhekS3p+oT4I2Ls=",
+    "password": "pbkdf2_sha256$1000000$dOdWqUmn9cBqBvDqbsoDVx$FkwhOtVP2joMG5J9E5g6Iij/tcwBzb9WI/okXSUSYZM=",
     "last_login": null,
     "is_superuser": false,
-    "username": "marco_bianchi",
+    "username": "attendee_demo",
     "first_name": "",
     "last_name": "",
-    "email": "marco@demo.it",
+    "email": "attendee@demo.it",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-07-09T16:21:48.434Z",
+    "date_joined": "2026-07-10T14:56:02.263Z",
     "bio": "",
     "groups": [
       2
@@ -101,7 +101,28 @@
   "model": "accounts.customuser",
   "pk": 5,
   "fields": {
-    "password": "pbkdf2_sha256$1000000$YdzVIeRq9ijbOJQmBeifsS$wOrFln3rpgUgJEobJrGPqRGueuVGhRs2RAEmwBkgRJ0=",
+    "password": "pbkdf2_sha256$1000000$dSt3rQzRWoTMvDlVZVNu31$vrAVugVEQDZnUFQ+6VgAxA1HUgvztokN94pEiCNEwT8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "marco_bianchi",
+    "first_name": "",
+    "last_name": "",
+    "email": "marco@demo.it",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-10T14:56:02.483Z",
+    "bio": "",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$UMVqqfezmAkBjFu7WqUoha$ObSkn6GjVIXxrLZoBgBzSDRGYz1sxDgxk3KkDoBmOIY=",
     "last_login": null,
     "is_superuser": false,
     "username": "giulia_verdi",
@@ -110,7 +131,7 @@
     "email": "giulia@demo.it",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-07-09T16:21:48.648Z",
+    "date_joined": "2026-07-10T14:56:02.700Z",
     "bio": "",
     "groups": [
       2
@@ -152,12 +173,45 @@
   }
 },
 {
+  "model": "events.event",
+  "pk": 4,
+  "fields": {
+    "title": "Hackathon Web 2025",
+    "description": "Edizione passata dell'hackathon dedicato allo sviluppo web.",
+    "date": "2025-11-10T08:00:00Z",
+    "location": "Le Murate, Firenze",
+    "organizer": 2
+  }
+},
+{
+  "model": "events.event",
+  "pk": 5,
+  "fields": {
+    "title": "Corso di Fotografia Digitale",
+    "description": "Un percorso base per imparare a scattare e post-produrre.",
+    "date": "2026-11-08T09:00:00Z",
+    "location": "Spazio Alfieri, Firenze",
+    "organizer": 3
+  }
+},
+{
+  "model": "events.event",
+  "pk": 6,
+  "fields": {
+    "title": "Aperitivo Networking Designer",
+    "description": "Incontro informale tra designer e creativi del territorio.",
+    "date": "2026-12-03T18:00:00Z",
+    "location": "Manifattura Tabacchi, Firenze",
+    "organizer": 3
+  }
+},
+{
   "model": "events.registration",
   "pk": 1,
   "fields": {
     "event": 1,
-    "attendee": 3,
-    "registered_at": "2026-07-09T16:21:48.877Z"
+    "attendee": 4,
+    "registered_at": "2026-07-10T14:56:02.967Z"
   }
 },
 {
@@ -165,8 +219,8 @@
   "pk": 2,
   "fields": {
     "event": 2,
-    "attendee": 3,
-    "registered_at": "2026-07-09T16:21:48.881Z"
+    "attendee": 4,
+    "registered_at": "2026-07-10T14:56:02.974Z"
   }
 },
 {
@@ -174,8 +228,8 @@
   "pk": 3,
   "fields": {
     "event": 1,
-    "attendee": 4,
-    "registered_at": "2026-07-09T16:21:48.889Z"
+    "attendee": 5,
+    "registered_at": "2026-07-10T14:56:02.980Z"
   }
 },
 {
@@ -183,8 +237,8 @@
   "pk": 4,
   "fields": {
     "event": 1,
-    "attendee": 5,
-    "registered_at": "2026-07-09T16:21:48.894Z"
+    "attendee": 6,
+    "registered_at": "2026-07-10T14:56:02.987Z"
   }
 },
 {
@@ -192,8 +246,35 @@
   "pk": 5,
   "fields": {
     "event": 3,
+    "attendee": 6,
+    "registered_at": "2026-07-10T14:56:02.995Z"
+  }
+},
+{
+  "model": "events.registration",
+  "pk": 6,
+  "fields": {
+    "event": 4,
     "attendee": 5,
-    "registered_at": "2026-07-09T16:21:48.899Z"
+    "registered_at": "2026-07-10T14:56:03.003Z"
+  }
+},
+{
+  "model": "events.registration",
+  "pk": 7,
+  "fields": {
+    "event": 5,
+    "attendee": 4,
+    "registered_at": "2026-07-10T14:56:03.011Z"
+  }
+},
+{
+  "model": "events.registration",
+  "pk": 8,
+  "fields": {
+    "event": 6,
+    "attendee": 6,
+    "registered_at": "2026-07-10T14:56:03.018Z"
   }
 },
 {
@@ -201,9 +282,9 @@
   "pk": 1,
   "fields": {
     "event": 1,
-    "author": 3,
+    "author": 4,
     "text": "Non vedo l'ora, gli speaker sono top!",
-    "created_at": "2026-07-09T16:21:48.906Z"
+    "created_at": "2026-07-10T14:56:03.026Z"
   }
 },
 {
@@ -211,9 +292,9 @@
   "pk": 2,
   "fields": {
     "event": 1,
-    "author": 4,
+    "author": 5,
     "text": "Qualcuno sa se ci sara' anche una sessione su Django?",
-    "created_at": "2026-07-09T16:21:48.912Z"
+    "created_at": "2026-07-10T14:56:03.034Z"
   }
 },
 {
@@ -221,9 +302,9 @@
   "pk": 3,
   "fields": {
     "event": 1,
-    "author": 5,
+    "author": 6,
     "text": "Ci sono stata l'anno scorso, esperienza fantastica.",
-    "created_at": "2026-07-09T16:21:48.917Z"
+    "created_at": "2026-07-10T14:56:03.041Z"
   }
 },
 {
@@ -231,9 +312,89 @@
   "pk": 4,
   "fields": {
     "event": 2,
-    "author": 3,
+    "author": 4,
     "text": "Perfetto per chi vuole imparare il deploy.",
-    "created_at": "2026-07-09T16:21:48.926Z"
+    "created_at": "2026-07-10T14:56:03.050Z"
+  }
+},
+{
+  "model": "events.comment",
+  "pk": 5,
+  "fields": {
+    "event": 5,
+    "author": 5,
+    "text": "Interessante, il fotografo e' molto bravo.",
+    "created_at": "2026-07-10T14:56:03.056Z"
+  }
+},
+{
+  "model": "events.rating",
+  "pk": 1,
+  "fields": {
+    "organizer": 2,
+    "author": 4,
+    "score": 5,
+    "created_at": "2026-07-10T14:56:03.062Z"
+  }
+},
+{
+  "model": "events.rating",
+  "pk": 2,
+  "fields": {
+    "organizer": 2,
+    "author": 5,
+    "score": 4,
+    "created_at": "2026-07-10T14:56:03.067Z"
+  }
+},
+{
+  "model": "events.rating",
+  "pk": 3,
+  "fields": {
+    "organizer": 2,
+    "author": 6,
+    "score": 5,
+    "created_at": "2026-07-10T14:56:03.074Z"
+  }
+},
+{
+  "model": "events.rating",
+  "pk": 4,
+  "fields": {
+    "organizer": 2,
+    "author": 3,
+    "score": 4,
+    "created_at": "2026-07-10T14:56:03.083Z"
+  }
+},
+{
+  "model": "events.rating",
+  "pk": 5,
+  "fields": {
+    "organizer": 3,
+    "author": 4,
+    "score": 5,
+    "created_at": "2026-07-10T14:56:03.090Z"
+  }
+},
+{
+  "model": "events.rating",
+  "pk": 6,
+  "fields": {
+    "organizer": 3,
+    "author": 5,
+    "score": 4,
+    "created_at": "2026-07-10T14:56:03.097Z"
+  }
+},
+{
+  "model": "events.rating",
+  "pk": 7,
+  "fields": {
+    "organizer": 3,
+    "author": 2,
+    "score": 5,
+    "created_at": "2026-07-10T14:56:03.103Z"
   }
 }
 ]

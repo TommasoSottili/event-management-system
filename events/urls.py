@@ -13,6 +13,8 @@ urlpatterns = [
     path("event/<int:pk>/participants/", views.EventParticipantsView.as_view(), name="event-participants"),
     path("event/<int:pk>/comment/", views.add_comment, name="add-comment"),
     path("comment/<int:pk>/delete/", views.delete_comment, name="delete-comment"),
+    path("organizer/<int:pk>/", views.OrganizerProfileView.as_view(), name="organizer-profile"),
+    path("organizer/<int:pk>/rate/", views.rate_organizer, name="rate-organizer"),
     path("my/events/", views.MyEventsView.as_view(), name="my-events"),
     path("my/registrations/", views.MyRegistrationsView.as_view(), name="my-registrations"),
 ]
